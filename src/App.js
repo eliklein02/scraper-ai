@@ -1,4 +1,4 @@
-import { chromium } from "playwright";
+import puppeteer from "puppeteer";
 import * as cheerio from "cheerio";
 import { useState } from "react";
 
@@ -14,7 +14,7 @@ function App() {
   const scrape = async () => {
     setLoading(true);
     try {
-      const browser = await chromium.launch();
+      const browser = await puppeteer.launch();
       const page = await browser.newPage();
       await page.goto(url);
       const content = await page.content();
